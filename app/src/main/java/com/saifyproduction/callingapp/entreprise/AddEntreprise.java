@@ -1,4 +1,4 @@
-package com.saifyproduction.callingapp;
+package com.saifyproduction.callingapp.entreprise;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -11,29 +11,16 @@ import android.widget.Toast;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.saifyproduction.callingapp.R;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 public class AddEntreprise extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -52,7 +39,7 @@ public class AddEntreprise extends AppCompatActivity implements View.OnClickList
         recyclerView.setLayoutManager(layoutManager);
         toolbar = (Toolbar)findViewById(R.id.toolbar_tech);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Add la position de l'entreprise");
+        getSupportActionBar().setTitle("Position de l'entreprise");
         if (toolbar != null){
             //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }

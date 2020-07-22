@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MapBoxNagigator">
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
+        app:mt_speechMode="false"
+        app:mt_hint="Search a place"
+        app:mt_maxSuggestionsCount="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/startButton"
+        android:layout_margin="16dp"
+        app:mt_navIconEnabled="true"
+        android:elevation="5dp"
+        android:background="@color/mapbox_blue"
+        android:textColor="@color/mapboxNotificationBlue"
+        android:outlineProvider="bounds"
+        app:mt_placeholder="Search a place"
+        tools:ignore="MissingConstraints" />
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="-1.686004"
+        mapbox:mapbox_cameraTargetLng=" 29.239253"
+        app:mapbox_styleUrl="@string/mapbox_style_satellite_streets"
+        app:mapbox_cameraZoom="11"/>
+</RelativeLayout>

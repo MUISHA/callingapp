@@ -43,7 +43,7 @@
             android:layout_below="@+id/layout_picture"
             app:cardCornerRadius="0dp">
             <LinearLayout
-                android:layout_width="340dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center"
@@ -106,7 +106,7 @@
                         <EditText
                             android:id="@+id/txt_respon"
                             android:layout_marginLeft="10dp"
-                            android:hint=" Responsable"
+                            android:hint="Responsable"
                             android:fontFamily="sans-serif-light"
                             android:inputType="textPersonName|textCapWords"
                             android:layout_width="match_parent"
@@ -198,6 +198,7 @@
                         android:layout_height="40dp"
                         android:layout_marginBottom="20dp"
                         android:layout_marginTop="5dp"
+                        android:outlineSpotShadowColor="@color/colorRed"
                         android:background="@drawable/et_bgc"
                         android:hint="Domicile"
                         android:outlineAmbientShadowColor="@color/colorStart"
@@ -222,7 +223,6 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/et_bgc"
                         android:hint="Domicile"
-                        android:outlineAmbientShadowColor="@color/colorStart"
                         android:fontFamily="sans-serif-light"
                         android:inputType="textPersonName" />
                 </LinearLayout>
@@ -317,9 +317,9 @@
                         android:layout_height="40dp"
                         android:layout_marginBottom="20dp"
                         android:layout_marginTop="5dp"
+                        app:titleTextColor="@color/colorStart"
                         android:background="@drawable/et_bgc"
                         android:hint="Domicile"
-                        android:outlineAmbientShadowColor="@color/colorStart"
                         android:fontFamily="sans-serif-light"
                         android:inputType="textPersonName" />
                 </LinearLayout>
@@ -407,6 +407,5 @@
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>

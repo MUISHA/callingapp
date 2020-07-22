@@ -1,4 +1,4 @@
-package com.saifyproduction.callingapp;
+package com.saifyproduction.callingapp.entreprise;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.saifyproduction.callingapp.R;
 import com.saifyproduction.callingapp.mysql.ApiClient;
 import com.saifyproduction.callingapp.mysql.ApiInterface;
 import com.saifyproduction.callingapp.mysql.Donnees;
