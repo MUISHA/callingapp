@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/c1</color>
+    <color name="colorPrimaryDark">@color/c2</color>
+    <color name="colorAccent">@color/c3</color>
+    <color name="logo">#EF6F06</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#D50000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorTranspart">#00000000</color>
+    <color name="colorStart">#FF1744</color>
+    <color name="colorStop">#F31D8C</color>
+    <color name="light">#FFEEEEEE</color>
+    <color name="c1">#730220</color>
+    <color name="c2">#260716</color>
+    <color name="c3">#F25C05</color>
+    <color name="c4">#D91604</color>
+    <color name="c5">#8C0303</color>
+    <!-- mysql editore-->
+    <color name="colorPrimaryEditor">#009cfd</color>
+    <color name="colorPrimaryDarkEditor">#1284ca</color>
+    <color name="colorAccentEditor">#e24000</color>
+    <!-- Fin mysql editore-->
+
+</resources>

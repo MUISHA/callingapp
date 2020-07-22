@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/row_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:id="@+id/layoutName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picture"
+            android:layout_width="64dp"
+            android:layout_height="55dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/ic_user" />
+
+        <LinearLayout
+            android:id="@+id/layoutName1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txt_entreprise1"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nom entreprise"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txt_respon1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Responsable"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_phone1"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_email1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_type1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type d'entreprise"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_domicile1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lieu de l'entreprise"
+                android:fontFamily="sans-serif-thin"
+                android:layout_marginTop="2dp"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_lat1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Latitude de l'netreprise"
+                android:fontFamily="sans-serif-thin"
+                android:layout_marginTop="2dp"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_longi1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Longitude de l'netreprise"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_quartier1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quartier"
+                android:fontFamily="sans-serif-thin"
+                android:layout_marginTop="2dp"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_commune1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Commune"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_avenu1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Avenu"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_numero_parcel1"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Numéro parcelle"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="200dp"
+                android:minWidth="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:gravity="left|top"
+                android:text="18-10-2018"
+                android:textColor="@color/colorAccent" />
+            <ImageView
+                android:id="@+id/love"
+                android:layout_marginTop="2dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_likeon"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

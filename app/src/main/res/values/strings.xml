@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">calling app</string>
+    <!-- cléf de carton-->
+    <string name="access_token" translatable="false">sk.eyJ1Ijoia3VidXlhLWNsIiwiYSI6ImNrYWdwM2I2cjA4bHEyc295MXN6M2F1bmYifQ.2Wumo2sLeJ7vy5JJKK1R7Q</string>
+    <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
+    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+
+    <string name="settings">Settings</string>
+    <string name="log_nam">User</string>
+    <string name="about">About...</string>
+
+    <string name="open_drawer">Open Drawer</string>
+    <string name="cloase_drawer">Close Drawer</string>
+    <string name="option">Option</string>
+    <string name="messagerie">Messagerie</string>
+    <string name="calling_sos">Calling SOS</string>
+    <string name="claude_kubuya_muisha">CLAUDE KUBUYA MUISHA</string>
+    <string name="place_sos">Place SOS</string>
+    <string name="callin_sos">Calling SOS</string>
+    <string name="app_tracqu">Tracquer entreprise</string>
+    <string name="app_sanitaire">Entreprise sanitaire</string>
+    <string name="login_1">Login</string>
+    <string name="username_1">Username</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="Password">Password</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="type_d_appel">Type d\'appel:</string>
+    <string name="login_as_243">Login as +243</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="app_registre">REGISTRE</string>
+    <string name="app_numb">number phone</string>
+    <string name="app_login_reg">Login</string>
+    <string name="forger_password">Forger password</string>
+
+    <!-- Type d'appels-->
+    <string-array name="TYPE_SOS">
+        <item name="app_accouch">Acouchement complique</item>
+        <item>Accident routier</item>
+        <item>Violence</item>
+        <item>Incedie</item>
+    </string-array>
+    <!-- Domicile de l'entreprise-->
+    <string name="gender_lieu">Lieu entreprise</string>
+    <string name="gender_domicile">Domicile</string>
+    <string name="gender_bureau">Bureu</string>
+    <!-- Fin Domicile de l'entreprise-->
+    <!-- Commune de l'entreprise-->
+    <string name="gender_commune">Commune</string>
+    <string name="comm_goma">Goma</string>
+    <string name="comm_karis">Karisimbi</string>
+    <!-- Fin Commune de l'entreprise-->
+    <!-- Commune de l'entreprise-->
+    <string name="gender_quartier">Quartier</string>
+    <string name="quartie_lesvol">Les volcans</string>
+    <string name="quartie_mik">Mikeno</string>
+    <string name="quartier_himb">Himbi</string>
+    <string name="quartier_Kyesh">Kyeshero</string>
+    <string name="quartier_lacv">Lac vert</string>
+
+    <string name="quartier_kah">Kahembe</string>
+    <string name="quartier_mur">Murara</string>
+    <string name="quartier_vir">Virunga</string>
+    <string name="quartier_maj">Majengo</string>
+    <string name="quartier_maban_s">Mabanga sud</string>
+    <string name="quartier_maban_n">Mabanga nord</string>
+    <string name="quartier_ndos">Ndosho</string>
+    <string name="quartier_mung">Mungunga</string>
+    <string name="quartier_katin1">Katindo 1</string>
+    <string name="quartier_katin2">Katindo 2</string>
+    <!-- Fin Commune de l'entreprise-->
+    <!-- Début txt_type de l'entreprise-->
+    <string name="gender_type">Type d\'entreprise</string>
+    <string name="type_sani">Sanitaire</string>
+    <string name="type_par">Para-étatique</string>
+    <string name="type_priv">Privée</string>
+    <string name="type_etat">Etatique</string>
+    <string name="type_loca">Local</string>
+    <string name="type_intern">Internatioonal</string>
+    <string name="type_univ">Universitaire</string>
+    <string name="type_inst_s">Institut superieur</string>
+    <string name="type_inst_se">Institut sécondaire</string>
+    <string name="type_ecolep">Ecole primaire et maternel</string>
+    <string name="type_ecoleprim">Ecole primaire</string>
+
+    <!-- Fin txt_type de l'entreprise-->
+
+</resources>

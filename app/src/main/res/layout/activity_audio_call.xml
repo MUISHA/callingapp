@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="@drawable/grad_bg"
+    tools:context=".frontend.AudioCall">
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/ur_sos"
+            android:text="@string/type_d_appel"
+            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_margin="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_below="@+id/ur_sos"
+            android:id="@+id/ur_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_margin="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:text="@string/login_as_243" />
+
+        <EditText
+            android:id="@+id/call_number"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/ur_num"
+            android:background="@drawable/et_bg"
+            android:ems="10"
+            android:textColorHint="@android:color/white"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:hint="@string/phone_number"
+            android:inputType="phone" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/callbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_margin="30dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/call_number"
+            app:srcCompat="@drawable/call_answer" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
