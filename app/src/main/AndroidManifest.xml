@@ -36,11 +36,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapBoxNagigator"></activity>
-        <activity android:name=".login.Loding"></activity>
+        <activity android:name=".MapBoxNagigator"
+            android:theme="@style/EditorTheme">
+        </activity>
+        <activity android:name=".login.Loding"
+            android:theme="@style/EditorTheme">
+        </activity>
         <activity
             android:name=".entreprise.Editor"
-            android:theme="@style/EditorTheme"></activity>
+            android:theme="@style/EditorTheme">
+        </activity>
         <activity
             android:name=".login.Registre"
             android:parentActivityName=".login.Loding" />

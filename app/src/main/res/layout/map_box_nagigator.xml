@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
@@ -6,7 +8,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MapBoxNagigator">
     <com.mancj.materialsearchbar.MaterialSearchBar
         style="@style/MaterialSearchBarLight"
@@ -30,6 +31,5 @@
         android:layout_height="match_parent"
         mapbox:mapbox_cameraTargetLat="-1.686004"
         mapbox:mapbox_cameraTargetLng=" 29.239253"
-        app:mapbox_styleUrl="@string/mapbox_style_satellite_streets"
         app:mapbox_cameraZoom="11"/>
 </RelativeLayout>

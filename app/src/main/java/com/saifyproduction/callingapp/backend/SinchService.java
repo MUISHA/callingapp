@@ -212,7 +212,8 @@ public class SinchService extends Service {
 
 
            /* FirebaseAuth auth = FirebaseAuth.getInstance();
-            DatabaseReference cal = FirebaseDatabase.getInstance().getReference().child("call_detail").child(auth.getCurrentUser().getUid()).child(call.getCallId());
+            DatabaseReference cal = FirebaseDatabase.getInstance().getReference().child("call_detail")
+            .child(auth.getCurrentUser().getUid()).child(call.getCallId());
 
 
             cal.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -244,7 +245,6 @@ public class SinchService extends Service {
                             intent.putExtra(CALL_ID, call.getCallId());
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             SinchService.this.startActivity(intent);
-
 
 
                         }

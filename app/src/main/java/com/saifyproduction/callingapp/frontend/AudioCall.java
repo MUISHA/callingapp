@@ -101,6 +101,9 @@ public class AudioCall extends BaseActivity implements SinchService.StartFailedL
 
                     startActivity(callScreen);
 
+        			
+
+
                 }
             }
         });

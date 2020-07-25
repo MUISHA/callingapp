@@ -172,7 +172,6 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
             }
         });
 
-        //imageView = findViewById(R.id.picture);
         mPicture = findViewById(R.id.picture);
         mFabChoosePic= findViewById(R.id.fabChoosePic);
         mFabChoosePic.setOnClickListener(this);
@@ -193,17 +192,16 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
         responsable = intent.getStringExtra("responsable");
         phone = intent.getStringExtra("phone");
         mail = intent.getStringExtra("mail");
-        type = intent.getIntExtra("type", 0);
-        domicile = intent.getIntExtra("domicile", 0);
+        type = intent.getIntExtra("type", 0); //Index
+        domicile = intent.getIntExtra("domicile", 0); //Index
 
-        latitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("latitude", 0)));
-        longitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("longitude", 0)));
+        latitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("latitude", (int) 0.0)));
+        longitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("longitude", (int) 0.0)));
 
-        //latitudes = Float.parseFloat(intent.getStringExtra("latitude"));
-        //longitudes = Float.parseFloat(intent.getStringExtra("longitude"));
 
-        quartier = intent.getIntExtra("quartier", 0);
-        commune = intent.getIntExtra("commune", 0);
+
+        quartier = intent.getIntExtra("quartier", 0); //Index
+        commune = intent.getIntExtra("commune", 0); //Index
 
         avenue = intent.getStringExtra("avenue");
         nume_home = intent.getStringExtra("nume_home");
@@ -212,6 +210,11 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
 
         //Fin Base de données
     }
+
+    /**
+     * Insert for the data base
+     * @param key
+     */
     private void postData(final String key) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Enregistre ...");
@@ -276,6 +279,12 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
             }
         });
     }
+
+    /**
+     * Update for the database
+     * @param key
+     * @param id
+     */
      private void updateData(final String key, final int id) {
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
