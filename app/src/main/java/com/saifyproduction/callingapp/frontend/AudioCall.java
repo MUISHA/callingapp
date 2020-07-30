@@ -1,11 +1,16 @@
 package com.saifyproduction.callingapp.frontend;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,13 +32,15 @@ public class AudioCall extends BaseActivity implements SinchService.StartFailedL
     EditText call_no;
     FloatingActionButton call_btn;
     String number;
-    String self;
+    String self, location;
     ProgressDialog progress;
 
-    TextView ur_number;
+    TextView ur_number1,ur_number2;
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
     TextView ur_sos1;
+    LocationManager lm;
+    MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,36 +49,48 @@ public class AudioCall extends BaseActivity implements SinchService.StartFailedL
         setContentView(R.layout.activity_audio_call);
 
 
-            DialogFragment sigleChoiceDialog = new ShoisTypeSosFragment();
-            sigleChoiceDialog.setCancelable(false);
-            sigleChoiceDialog.show(getSupportFragmentManager(),"TYPE D'APPEL SOS");
-
-        ur_sos1 = (TextView) findViewById(R.id.ur_sos);
+        DialogFragment sigleChoiceDialog = new ShoisTypeSosFragment();
+        sigleChoiceDialog.setCancelable(false);
+        sigleChoiceDialog.show(getSupportFragmentManager(), "TYPE D'APPEL SOS");
         builder = new AlertDialog.Builder(this);
 
+        ur_sos1 = (TextView) findViewById(R.id.ur_sos);
+        ur_number1 = (TextView) findViewById(R.id.ur_num);
+        call_no = (EditText) findViewById(R.id.call_number);
+        ur_number2 = (TextView) findViewById(R.id.text_location);
+
         progress = new ProgressDialog(this);
-        call_no = ( EditText ) findViewById ( R.id.call_number );
-        call_btn = ( FloatingActionButton )   findViewById ( R.id.callbtn );
-        ur_number = ( TextView ) findViewById ( R.id.ur_num );
+
+        call_btn = (FloatingActionButton) findViewById(R.id.callbtn);
 
         progress.setMessage("Please wait .....");
         progress.setCancelable(false);
         progress.show();
 
-
-        if ( getIntent().hasExtra("number") ){
-
+    //////////////////////////////////////////////////////
+        if (getIntent().hasExtra("number") && getIntent().hasExtra("location")) {
+            /**
+             * Here Number colling
+             */
             self = getIntent().getStringExtra("number");
-            ur_number.setText( "Login as : "+ self);
+            /**
+             * Here location
+             */
+            location = getIntent().getStringExtra("location");
 
-        }
-        else{
+            ur_number1.setText("Login as : " + self);
+            ur_number2.setText("The incoming call is located from  : " + location);
+
+        } else {
             self = "0";
+            location = "0";
         }
 
         call_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 if (call_no.getText().toString().isEmpty()) {
 
@@ -85,10 +104,18 @@ public class AudioCall extends BaseActivity implements SinchService.StartFailedL
                     Toast.makeText(AudioCall.this, "You can't call yourself",
                             Toast.LENGTH_LONG).show();
 
+
+
                 }
 
                 else {
+                    /*
+                     Call call = getSinchServiceInterface().callUser(userName, headers);
+                    String callId = call.getCallId();
+                     */
 
+
+                    //Location Listener
                     number = call_no.getText().toString().trim();
                     Call call = getSinchServiceInterface().callUseraudio(number);
                     final String callId = call.getCallId();
@@ -100,17 +127,9 @@ public class AudioCall extends BaseActivity implements SinchService.StartFailedL
 
 
                     startActivity(callScreen);
-
-        			
-
-
                 }
             }
         });
-
-
-
-
     }
 
     @Override
@@ -118,11 +137,8 @@ public class AudioCall extends BaseActivity implements SinchService.StartFailedL
         // mLoginButton.setEnabled(true);
         getSinchServiceInterface().setStartListener(this);
 
-        Toast.makeText(AudioCall.this, "Server connected",
-                Toast.LENGTH_LONG).show();
-
+        Toast.makeText(AudioCall.this, "Server connected", Toast.LENGTH_LONG).show();
         progress.dismiss();
-
     }
     @Override
     public void onStartFailed(SinchError error) {
@@ -143,4 +159,12 @@ public class AudioCall extends BaseActivity implements SinchService.StartFailedL
     public void onPositionNegatifClicked() {
         ur_sos1.setText("ANNULER L'OPERATION");
     }
+    /**
+     * Cliquer sur le buton de localisation
+     *
+     * }else if( location.equalsIgnoreCase( call_no.getText().toString().trim() )  ){
+     *
+     *                     Toast.makeText(AudioCall.this, "You can't call yourself",
+     *                             Toast.LENGTH_LONG).show();
+     */
 }

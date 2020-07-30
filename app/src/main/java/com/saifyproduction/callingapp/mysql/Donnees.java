@@ -25,10 +25,10 @@ public class Donnees{
         private int domicile;
 
         @SerializedName("latitude")
-        private double p_latitude;
+        private float p_latitude;
 
         @SerializedName("logitude")
-        private double p_longitude;
+        private float p_longitude;
 
         @SerializedName("quartier")
         private int quartier;
@@ -117,7 +117,7 @@ public class Donnees{
         return p_latitude;
     }
 
-    public void setP_latitude(double p_latitude) {
+    public void setP_latitude(float p_latitude) {
         this.p_latitude = p_latitude;
     }
 
@@ -125,7 +125,7 @@ public class Donnees{
         return p_longitude;
     }
 
-    public void setP_longitude(double p_longitude) {
+    public void setP_longitude(float p_longitude) {
         this.p_longitude = p_longitude;
     }
 

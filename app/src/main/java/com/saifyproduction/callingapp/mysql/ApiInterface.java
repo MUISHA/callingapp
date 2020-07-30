@@ -15,19 +15,19 @@ public interface ApiInterface {
     @POST("add_sos.php")
     Call<Donnees> insertSos(
             @Field("key") String key,
-            @Field("nom_entreprise") String nom_entreprise,
+            @Field("nom_entreprise") String nom_entreprise, // Erreur
             @Field("responsable") String responsable,
             @Field("phone") String phone_number ,
             @Field("email") String mail_compte ,
             @Field("type") int type_entreprise ,//Index
             @Field("domicile") int domicile ,//Index
-            @Field("latitude") double p_latitude ,
-            @Field("logitude") double p_longitude  ,
+            @Field("latitude") float p_latitude ,
+            @Field("logitude") float p_longitude  ,
             @Field("quartier") int quartier  , //index
             @Field("commune") int commune  , //index
             @Field("avenue") String avenue  ,
-            @Field("numero_home") int numero_home  , //index
-            @Field("date_save") String date_timer,
+            @Field("numero_home") int numero_home  , //index Erreur
+            @Field("date_save") String date_timer, // Erreur
             @Field("picture") String picture);
 
     @FormUrlEncoded
@@ -41,8 +41,8 @@ public interface ApiInterface {
             @Field("email") String mail_compte ,
             @Field("type") int type_entreprise ,//Index
             @Field("domicile") int domicile ,//Index
-            @Field("latitude") double p_latitude ,
-            @Field("logitude") double p_longitude  ,
+            @Field("latitude") float p_latitude ,
+            @Field("logitude") float p_longitude  ,
             @Field("quartier") int quartier  , //index
             @Field("commune") int commune  , //index
             @Field("avenue") String avenue  ,

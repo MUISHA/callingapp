@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/grad_bg"
+    android:padding="5dp"
     tools:context=".frontend.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="TextView"
+        android:textColor="@drawable/grad_bg"
+        android:background="@drawable/grad_bg"
+        android:visibility="invisible"
+        tools:visibility="invisible" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="50dp"

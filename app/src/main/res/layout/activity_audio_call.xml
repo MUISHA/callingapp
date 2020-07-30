@@ -5,16 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
+    android:padding="10dp"
     android:background="@drawable/grad_bg"
     tools:context=".frontend.AudioCall">
 
 
+    <TextView
+        android:id="@+id/text_location"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/colorWhite"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:text="Coordonnée de l'appel est :" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_centerInParent="true">
         <TextView
             android:id="@+id/ur_sos"
@@ -23,14 +32,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:textSize="20sp"
             android:layout_margin="20dp"
             android:textColor="@color/white"
             android:textStyle="bold"/>
         <TextView
-            android:layout_below="@+id/ur_sos"
             android:id="@+id/ur_num"
+            android:layout_below="@+id/ur_sos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -48,9 +57,9 @@
             android:background="@drawable/et_bg"
             android:ems="10"
             android:textColorHint="@android:color/white"
-            android:gravity="center"
             android:textColor="@color/white"
             android:hint="@string/phone_number"
+            android:layout_centerInParent="true"
             android:inputType="phone" />
 
 

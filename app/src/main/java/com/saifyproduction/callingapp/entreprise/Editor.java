@@ -37,6 +37,8 @@ import com.saifyproduction.callingapp.mysql.ApiClient;
 import com.saifyproduction.callingapp.mysql.ApiInterface;
 import com.saifyproduction.callingapp.mysql.Donnees;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -47,6 +49,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
 public class Editor extends AppCompatActivity implements View.OnClickListener{
 
@@ -131,7 +134,7 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
 
     private int id,type,domicile,quartier,commune,num_parcel;
 
-    private double latitudes,longitudes;
+    private float latitudes,longitudes;
 
     private Menu action;
     private Bitmap bitmap;
@@ -195,8 +198,8 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
         type = intent.getIntExtra("type", 0); //Index
         domicile = intent.getIntExtra("domicile", 0); //Index
 
-        latitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("latitude", (int) 0.0)));
-        longitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("longitude", (int) 0.0)));
+        latitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("latitude", 0)));
+        longitudes = Float.parseFloat(String.valueOf(intent.getIntExtra("longitude",  0)));
 
 
 
@@ -212,185 +215,8 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
     }
 
     /**
-     * Insert for the data base
-     * @param key
+     * Set table
      */
-    private void postData(final String key) {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Enregistre ...");
-        progressDialog.show();
-
-        readMode();
-
-        String nomE = mNum_parcel.getText().toString().trim();
-        String respo =mRespo.getText().toString().trim();
-        String phon = mPhone.getText().toString().trim();;
-        String mails = mMail.getText().toString().trim();
-
-        int types = mGender_type; //index
-        int domiciles = mGender_domilcile; //index
-
-        double latitud = latitudes;
-        double longitud = longitudes;
-
-        int quartiers = mGender_quartier; //index
-        int communes = mGender_commune; //index
-
-        String avenus = mAvenu.getText().toString().trim();
-        int num_homs = num_parcel;
-
-        String dates = mDate.getText().toString().trim();
-        String pictures = null;
-
-        if (bitmap == null) {
-            picture = "";
-        } else {
-            picture = getStringImage(bitmap);
-        }
-
-    apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-
-        Call<Donnees> call = apiInterface.insertSos(key,nomE,respo ,phon ,mails ,types , domiciles , latitud , longitud , quartiers ,communes , avenus , num_homs , dates , pictures);
-
-
-        call.enqueue(new Callback<Donnees>() {
-            @Override
-            public void onResponse(Call<Donnees> call, Response<Donnees> response) {
-
-                progressDialog.dismiss();
-
-                Log.i(Editor.class.getSimpleName(), response.toString());
-
-                String value = response.body().getValue();
-                String message = response.body().getMassage();
-
-                if (value.equals("1")){
-                    finish();
-                } else {
-                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Donnees> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(Editor.this, t.getMessage().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    /**
-     * Update for the database
-     * @param key
-     * @param id
-     */
-     private void updateData(final String key, final int id) {
-
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Modifier ...");
-        progressDialog.show();
-
-        readMode();
-
-        String nomE = mNum_parcel.getText().toString().trim();
-        String respo =mRespo.getText().toString().trim();
-        String phon = mPhone.getText().toString().trim();;
-        String mails = mMail.getText().toString().trim();
-
-        int types = mGender_type; //index
-        int domiciles = mGender_domilcile; //index
-
-        double latitud = latitudes;
-        double longitud = longitudes;
-
-        int quartiers = mGender_quartier; //index
-        int communes = mGender_commune; //index
-
-        String avenus = mAvenu.getText().toString().trim();
-        int num_homs = num_parcel;
-
-        String dates = mDate.getText().toString().trim();
-        String pictures = null;
-
-        if (bitmap == null) {
-            picture = "";
-        } else {
-            picture = getStringImage(bitmap);
-        }
-
-        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-
-        Call<Donnees> call = apiInterface.updateSos(key,id,nomE,respo ,phon ,mails ,types , domiciles , latitud , longitud , quartiers ,
-                communes , avenus , num_homs , dates , pictures);
-
-
-        call.enqueue(new Callback<Donnees>() {
-            @Override
-            public void onResponse(Call<Donnees> call, Response<Donnees> response) {
-
-                progressDialog.dismiss();
-
-                Log.i(Editor.class.getSimpleName(), response.toString());
-
-                String value = response.body().getValue();
-                String message = response.body().getMassage();
-
-                if (value.equals("1")){
-                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Donnees> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(Editor.this, t.getMessage().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    private void deleteData(final String key, final int id, final String pic) {
-
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Suprimmer ...");
-        progressDialog.show();
-
-        readMode();
-
-        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-
-        Call<Donnees> call = apiInterface.deleteSos(key, id, pic);
-
-        call.enqueue(new Callback<Donnees>() {
-            @Override
-            public void onResponse(Call<Donnees> call, Response<Donnees> response) {
-
-                progressDialog.dismiss();
-
-                Log.i(Editor.class.getSimpleName(), response.toString());
-
-                String value = response.body().getValue();
-                String message = response.body().getMassage();
-
-                if (value.equals("1")){
-                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Donnees> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(Editor.this, t.getMessage().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
     private void setDataFromIntentExtra() {
 
         if (id != 0) {
@@ -538,6 +364,196 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
             getSupportActionBar().setTitle("Ajouter l'entreprise");
         }
     }
+    /**
+     * Insert for the data base
+     * @param key
+     */
+    private void postData(final String key) {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Enregistre ...");
+        progressDialog.show();
+
+        readMode();
+
+        String nomE = mNentre.getText().toString().trim();
+        String respo = mRespo.getText().toString().trim();
+        String phon = mPhone.getText().toString().trim();;
+        String mails = mMail.getText().toString().trim();
+
+        int types = mGender_type; //index
+        int domiciles = mGender_domilcile; //index
+
+        float latitud = latitudes;
+        float longitud = longitudes;
+
+        int quartiers = mGender_quartier; //index
+        int communes = mGender_commune; //index
+
+        String avenus = mAvenu.getText().toString().trim();
+        int num_homs = num_parcel;
+
+        String dates = mDate.getText().toString().trim();
+        String pictures = null;
+
+        if (bitmap == null) {
+            picture = "";
+        } else {
+            picture = getStringImage(bitmap);
+        }
+
+    apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+        Call<Donnees> call = apiInterface.insertSos(key,nomE,respo ,phon ,mails ,types , domiciles , latitud , longitud , quartiers ,communes , avenus , num_homs , dates , pictures);
+
+
+        call.enqueue(new Callback<Donnees>() {
+            @Override
+            public void onResponse(@NotNull Call<Donnees> call, @NotNull Response<Donnees> response) {
+
+                progressDialog.dismiss();
+
+                Timber.tag(Editor.class.getSimpleName()).i(response.toString());
+
+                assert response.body() != null;
+                String value = response.body().getValue();
+                String message = response.body().getMassage();
+
+                if (value.equals("1")){
+                    finish();
+                } else {
+                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<Donnees> call, @NotNull Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(Editor.this, t.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /**
+     * Update for the database
+     * @param key
+     * @param id
+     */
+     private void updateData(final String key, final int id) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Modifier ...");
+        progressDialog.show();
+
+        readMode();
+
+        String nomE = mNum_parcel.getText().toString().trim();
+        String respo =mRespo.getText().toString().trim();
+        String phon = mPhone.getText().toString().trim();;
+        String mails = mMail.getText().toString().trim();
+
+        int types = mGender_type; //index
+        int domiciles = mGender_domilcile; //index
+
+        float latitud = latitudes;
+        float longitud = longitudes;
+
+        int quartiers = mGender_quartier; //index
+        int communes = mGender_commune; //index
+
+        String avenus = mAvenu.getText().toString().trim();
+        int num_homs = num_parcel;
+
+        String dates = mDate.getText().toString().trim();
+        String pictures = null;
+
+        if (bitmap == null) {
+            picture = "";
+        } else {
+            picture = getStringImage(bitmap);
+        }
+
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+        Call<Donnees> call = apiInterface.updateSos(key,id,nomE,respo ,phon ,mails ,types , domiciles , latitud , longitud , quartiers ,
+                communes , avenus , num_homs , dates , pictures);
+
+
+        call.enqueue(new Callback<Donnees>() {
+            @Override
+            public void onResponse(@NotNull Call<Donnees> call, @NotNull Response<Donnees> response) {
+
+                progressDialog.dismiss();
+
+                Timber.tag(Editor.class.getSimpleName()).i(response.toString());
+
+                assert response.body() != null;
+                String value = response.body().getValue();
+                String message = response.body().getMassage();
+
+                if (value.equals("1")){
+                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<Donnees> call, @NotNull Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(Editor.this, t.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /**
+     * Delete table
+     * @param key
+     * @param id
+     * @param pic
+     */
+    private void deleteData(final String key, final int id, final String pic) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Suprimmer ...");
+        progressDialog.show();
+
+        readMode();
+
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+        Call<Donnees> call = apiInterface.deleteSos(key, id, pic);
+
+        call.enqueue(new Callback<Donnees>() {
+            @Override
+            public void onResponse(Call<Donnees> call, Response<Donnees> response) {
+
+                progressDialog.dismiss();
+
+                Log.i(Editor.class.getSimpleName(), response.toString());
+
+                String value = response.body().getValue();
+                String message = response.body().getMassage();
+
+                if (value.equals("1")){
+                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(Editor.this, message, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Donnees> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(Editor.this, t.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
     @SuppressLint("RestrictedApi")
     void readMode(){
         mNentre.setFocusableInTouchMode(false);
@@ -683,8 +699,7 @@ public class Editor extends AppCompatActivity implements View.OnClickListener{
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
         @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear,
-                              int dayOfMonth) {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             // TODO Auto-generated method stub
             myCalendar.set(Calendar.YEAR, year);
             myCalendar.set(Calendar.MONTH, monthOfYear);

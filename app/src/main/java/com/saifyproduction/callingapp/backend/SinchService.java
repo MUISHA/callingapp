@@ -140,9 +140,7 @@ public class SinchService extends Service {
     }
 
     public interface StartFailedListener {
-
         void onStartFailed(SinchError error);
-
         void onStarted();
     }
 
@@ -201,9 +199,6 @@ public class SinchService extends Service {
 
         @Override
         public void onIncomingCall(CallClient callClient, final Call call) {
-
-
-
 
             Intent intent = new Intent(SinchService.this, Incoming_audio_call.class);
             intent.putExtra(CALL_ID, call.getCallId());

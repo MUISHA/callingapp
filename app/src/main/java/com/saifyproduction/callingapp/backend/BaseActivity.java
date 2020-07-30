@@ -27,9 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
 
             mSinchServiceInterface = (SinchService.SinchServiceInterface) iBinder;
             onServiceConnected();
-
         }
-
     }
 
     @Override

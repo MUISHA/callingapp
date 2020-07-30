@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
@@ -25,11 +23,16 @@
         android:outlineProvider="bounds"
         app:mt_placeholder="Search a place"
         tools:ignore="MissingConstraints" />
+
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
         mapbox:mapbox_cameraTargetLat="-1.686004"
-        mapbox:mapbox_cameraTargetLng=" 29.239253"
-        app:mapbox_cameraZoom="11"/>
+        mapbox:mapbox_cameraTargetLng="29.239253"
+        mapbox:mapbox_cameraZoom="12"/>
 </RelativeLayout>
